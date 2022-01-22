@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -13,7 +13,22 @@ const IndexPage = () => {
     const [BuyAmount, setBuyAmount] = useState("");
     const [tokenId, setTokenId] = useState("");
     const [profile, setProfile] = useState(null);
-    const [pricelist, setPriceList] = useState(null);
+    const [pricelist, setPriceList] = useState([0,0,0,0,0,0,0,0,0,0]);
+    const [counter, setCounter] = useState(0);
+    const [flag, setFlag] = useState(0);
+
+    // useEffect(() => {
+
+    //   var countie = Math.round(counter/1000);
+
+    //   if (countie !== Math.round(counter+1/1000)) {
+    //     generatePriceHistory(pricelist);
+    //   }      
+
+    //   setInterval(setCounter(counter+1), 1000);  
+      
+
+    // });
 
     const handleBuyAmountchange = (e) => {
       const { BuyAmount, value } = e.target;
@@ -41,6 +56,8 @@ const IndexPage = () => {
       pricelist.push(pricelist[pricelist.length - 1] + 50);
       return pricelist;
     }
+
+    
 
   return(
     <Layout>
@@ -120,7 +137,7 @@ const IndexPage = () => {
           data={[
             {
               x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-              y: generatePriceHistory(pricelist),
+              y: pricelist,
               type: 'scatter',
               mode: 'lines+markers',
               marker: {color: 'red'},
