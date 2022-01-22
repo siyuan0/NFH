@@ -1,6 +1,8 @@
 .header {
-    padding: 3rem 0 3rem;
+    padding: 3rem 0 1rem;
+    margin-bottom: 3rem;
     text-align: center;
+    background-color: rgb(121, 121, 248);
 }
 
 .title {
@@ -17,7 +19,7 @@
 }
 
 .nav-item {
-    color: #999999;
+    color: #363130;
     font-size: .9rem;
     margin-right: 2rem;
     text-decoration: none;
@@ -28,5 +30,5 @@
 }
 
 .active-nav-item {
-    color: #363130;
+    color: #2c2827;
 }
