@@ -63,14 +63,48 @@ const IndexPage = () => {
       </div>
       <div id="div_under">
         <div><h2>Current Price: £{profile.price}/token</h2></div>
+      </div>
+      <div id="div_under">
+        <div><p>Buy Price:</p></div>
         <div>
-              <input
-                name="BuyAmount"
-                placeholder="Buy Amount"
-                value={BuyAmount}
-                onChange={e => handleBuyAmountchange(e)}
-              />
-          </div>
+          <input
+            name="Buy Price"
+            placeholder="Buy Price"
+            value={tokenId}
+            onChange={e => handleTokenIdchange(e)}
+          />
+        </div>
+        <div><p>Quantity:</p></div>
+        <div>
+          <input
+            name="1"
+            placeholder="1"
+            value={tokenId}
+            onChange={e => handleTokenIdchange(e)}
+          />
+          <button onClick={() => handleSearch()}>Place Buy Order</button>
+        </div>
+      </div>
+      <div id="div_under">
+        <div><p>Sell Price:</p></div>
+        <div>
+          <input
+            name="Sell Price"
+            placeholder="Sell Price"
+            value={tokenId}
+            onChange={e => handleTokenIdchange(e)}
+          />
+        </div>
+        <div><p>Quantity:</p></div>
+        <div>
+          <input
+            name="1"
+            placeholder="1"
+            value={tokenId}
+            onChange={e => handleTokenIdchange(e)}
+          />
+          <button onClick={() => handleSearch()}>Place Sell Order</button>
+        </div>
       </div>
       <div id="div_under">
         <StaticImage 
