@@ -14,7 +14,7 @@ const Header = () => {
 			<nav>
 				<ul className={headerStyles.navList}>
 					<li>
-							<Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to='/'>Home</Link>
+							<Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to='/'>Search</Link>
 					</li>
 					<li>
 							<Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to='/upload'>Upload</Link>

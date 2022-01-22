@@ -56,7 +56,7 @@ const UploadPage = () => {
         "Investment Banker": 80000,
     };
 
-    toPay = Math.round(money/(salaries[career]/10)*10)/10;
+    toPay = Math.round((money/(salaries[career]*40))*1000)/10;
 
     alert(`You will need to sell ${toPay}% of your future income`);
   };
