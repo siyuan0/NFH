@@ -70,7 +70,7 @@ const UploadPage = () => {
         price: Math.round(money/(toPay*10)),
     };
 
-    localStorage.setItem(name, JSON.stringify(toSave));
+    localStorage.setItem(tokenId, JSON.stringify(toSave));
     alert("NFH created");
   };
 
