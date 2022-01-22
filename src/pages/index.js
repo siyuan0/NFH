@@ -62,7 +62,7 @@ const IndexPage = () => {
         </div>
       </div>
       <div id="div_under">
-        <div><h2>Current Price: £{profile.price}/token</h2></div>
+        <div><h2>Current Price: US${profile.price}/token</h2></div>
         <div>
               <input
                 name="BuyAmount"
