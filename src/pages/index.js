@@ -14,12 +14,12 @@ const IndexPage = () => (
       <Link to="/using-dsg">Go to "Using DSG"</Link>
     </p>
     <Seo title="Home" />
-    <h1>Profile: Peter</h1>
-    <p>Name: Peter Lee</p>
-    <p>Age: 25</p>
+    <h1>Profile: SML</h1>
+    <p>Name: Simon Liu</p>
+    <p>Age: 35</p>
     <p>Gender: Male</p>
     <p>Criminal Records: Nil<StaticImage
-      src="../images/gatsby-astronaut.png"
+      src="../images/profile_simon.png"
       width={300}
       quality={95}
       formats={["auto", "webp", "avif"]}
