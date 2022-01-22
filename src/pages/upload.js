@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useState, Image } from "react"
+import { useState } from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -21,20 +21,17 @@ const UploadPage = () => {
   };
 
   const handleImagechange = (e) => {
-    setImage(e.target);
+    console.log(getBase64(e.target.files[0]));
+    getBase64(e.target.files[0]).then(value => (setImage(value)));
   };
 
-  function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-
-    var dataURL = canvas.toDataURL("image/png");
-
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+  const getBase64 = (file) => {
+    return new Promise((resolve,reject) => {
+       const reader = new FileReader();
+       reader.onload = () => resolve(reader.result);
+       reader.onerror = error => reject(error);
+       reader.readAsDataURL(file);
+    });
   }
 
   const handleTokenIdchange = (e) => {
@@ -67,7 +64,7 @@ const UploadPage = () => {
   const handleCreate = () => {
     var toSave = {
         name: name,
-        image: getBase64Image(image),
+        image: image,
         tokenId: tokenId,
         tokens: toPay*10,
         price: Math.round(money/(toPay*10)),
@@ -94,7 +91,7 @@ const UploadPage = () => {
 
         <br />
 
-        <Image source={image} />
+        <img src={image} />
 
         <b>Your Name</b>
         <div>
