@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useState } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -72,6 +72,7 @@ const UploadPage = () => {
 
     localStorage.setItem(tokenId, JSON.stringify(toSave));
     alert("NFH created");
+    navigate("/");
   };
 
 

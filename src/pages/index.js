@@ -11,7 +11,7 @@ import Seo from "../components/seo"
 const IndexPage = () => {
     const [BuyAmount, setBuyAmount] = useState("");
     const [tokenId, setTokenId] = useState("");
-    const [profile, setProfile] = useState({image:"None"});
+    const [profile, setProfile] = useState(null);
 
     const handleBuyAmountchange = (e) => {
       const { BuyAmount, value } = e.target;
@@ -36,8 +36,6 @@ const IndexPage = () => {
   return(
     <Layout>
       <Seo title="Home" />
-      <h1>Profile: SML</h1>
-
       <div>
         <input
           name="tokenId"
@@ -48,27 +46,23 @@ const IndexPage = () => {
         <button onClick={() => handleSearch()}>Search</button>
       </div>
 
-      {profile.image === "None" ? "Search now" : <img src={convertToImage(profile.image)} />}
-
-
+      {profile === null ? "" :
+      <div>
+      <b>Profile: {profile.tokenId}</b>
       <div>
         <div id="div_side">
-        <p>Name: Simon Liu<br />
-          Age: 35<br />
-          Gender: Male<br />
-          Criminal Records: Nil<br />
+        <p>Name: {profile.name}<br />
+          Tokens Available: {profile.tokens}<br />
         </p>
         </div>
         <div id="div_side">
-        <StaticImage 
-          src="../images/profile_simon.png"
-          layout="fixed"
-          width={150}
-          height={150}/>
+        <img
+          src={convertToImage(profile.image)}
+        />
         </div>
       </div>
       <div id="div_under">
-        <div><h2>Current Price: £303/token</h2></div>
+        <div><h2>Current Price: £{profile.price}/token</h2></div>
         <div>
               <input
                 name="BuyAmount"
@@ -84,6 +78,8 @@ const IndexPage = () => {
           layout="constrained"
           />
       </div>
+      </div>
+    }
     </Layout>
   )
 }
