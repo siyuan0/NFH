@@ -5,6 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Plot from 'react-plotly.js';
 
 
 
@@ -12,6 +13,7 @@ const IndexPage = () => {
     const [BuyAmount, setBuyAmount] = useState("");
     const [tokenId, setTokenId] = useState("");
     const [profile, setProfile] = useState(null);
+    const [pricelist, setPriceList] = useState(null);
 
     const handleBuyAmountchange = (e) => {
       const { BuyAmount, value } = e.target;
@@ -25,12 +27,19 @@ const IndexPage = () => {
 
     const handleSearch = () => {
       setProfile(JSON.parse(localStorage.getItem(tokenId)));
+      setPriceList([0,0,0,0,0,0,0,0,0,JSON.parse(localStorage.getItem(tokenId)).price]);
     };
 
     function convertToImage (img) {
       var image = new Image();
       image.src = img;
       return img;
+    }
+
+    function generatePriceHistory (pricelist){
+      pricelist.shift();
+      pricelist.push(pricelist[pricelist.length - 1] + 50);
+      return pricelist;
     }
 
   return(
@@ -73,10 +82,18 @@ const IndexPage = () => {
           </div>
       </div>
       <div id="div_under">
-        <StaticImage 
-          src="../images/price_chart.png"
-          layout="constrained"
-          />
+        <Plot
+          data={[
+            {
+              x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              y: generatePriceHistory(pricelist),
+              type: 'scatter',
+              mode: 'lines+markers',
+              marker: {color: 'red'},
+            },
+          ]}
+          layout={ {width: 320, height: 240, title: 'A Fancy Plot'} }
+        />
       </div>
       </div>
     }
