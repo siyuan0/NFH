@@ -21,18 +21,18 @@ const IndexPage = () => {
     const [counter, setCounter] = useState(0);
     const [flag, setFlag] = useState(0);
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //   var countie = Math.round(counter/1000);
+      var currentdate = new Date();
 
-    //   if (countie !== Math.round(counter+1/1000)) {
-    //     generatePriceHistory(pricelist);
-    //   }      
-
-    //   setInterval(setCounter(counter+1), 1000);  
-      
-
-    // });
+      if (counter != currentdate.getSeconds()) {
+        generatePriceHistory(pricelist);
+        setCounter(currentdate.getSeconds());
+      }  
+      setTimeout(() => {
+        setFlag(flag+1);
+      }, 1000);
+    });
 
     const handleBuyAmountchange = (e) => {
       const { BuyAmount, value } = e.target;
@@ -73,7 +73,11 @@ const IndexPage = () => {
 
     function generatePriceHistory (pricelist){
       pricelist.shift();
-      pricelist.push(pricelist[pricelist.length - 1] + 50);
+      if (Math.random() < 0.5){
+        pricelist.push(pricelist[pricelist.length - 1] + 50 * Math.random());
+      } else { 
+        pricelist.push(pricelist[pricelist.length - 1] - 50 * Math.random());
+      }
       return pricelist;
     }
 
@@ -104,6 +108,7 @@ const IndexPage = () => {
         <div id="div_side">
         <img
           src={convertToImage(profile.image)}
+          style={{ 'height' : '150px' }}
         />
         </div>
       </div>
@@ -163,7 +168,7 @@ const IndexPage = () => {
               marker: {color: 'red'},
             },
           ]}
-          layout={ {width: 320, height: 240, title: 'A Fancy Plot'} }
+          layout={ {width: 800, height: 400, title: 'Price history'} }
         />
       </div>
       </div>
