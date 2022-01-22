@@ -73,7 +73,7 @@ const IndexPage = () => {
 
     function generatePriceHistory (pricelist){
       pricelist.shift();
-      if (Math.random() < 0.5){
+      if (Math.random() < 0.6){
         pricelist.push(pricelist[pricelist.length - 1] + 50 * Math.random());
       } else { 
         pricelist.push(pricelist[pricelist.length - 1] - 50 * Math.random());
@@ -113,7 +113,7 @@ const IndexPage = () => {
         </div>
       </div>
       <div id="div_under">
-        <div><h2>Current Price: £{profile.price}/token</h2></div>
+        <div><h2>Current Price: £{Math.round(pricelist[pricelist.length-1])}/token</h2></div>
       </div>
       <div id="div_under">
         <div><p>Buy Price:</p></div>
