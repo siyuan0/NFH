@@ -11,11 +11,31 @@ import Seo from "../components/seo"
 const IndexPage = () => {
     const [BuyAmount, setBuyAmount] = useState("");
     const [tokenId, setTokenId] = useState("");
+    const [BuyPrice, setBuyPrice] = useState("");
+    const [SellPrice, setSellPrice] = useState("");
+    const [BuyQuantity, setBuyQuantity] = useState("");
+    const [SellQuantity, setSellQuantity] = useState("");
     const [profile, setProfile] = useState(null);
 
     const handleBuyAmountchange = (e) => {
       const { BuyAmount, value } = e.target;
       setBuyAmount(value);
+    };
+    const handleBuyPricechange = (e) => {
+      const { BuyPrice, value } = e.target;
+      setBuyPrice(value);
+    };
+    const handleSellPricechange = (e) => {
+      const { SellPrice, value } = e.target;
+      setSellPrice(value);
+    };
+    const handleBuyQuantitychange = (e) => {
+      const { BuyQuantity, value } = e.target;
+      setBuyQuantity(value);
+    };
+    const handleSellQuantitychange = (e) => {
+      const { SellQuantity, value } = e.target;
+      setSellQuantity(value);
     };
 
     const handleTokenIdchange = (e) => {
@@ -47,8 +67,8 @@ const IndexPage = () => {
       </div>
 
       {profile === null ? "" :
-      <div>
-      <b>Profile: {profile.tokenId}</b>
+      <div><br />
+      <h2>Profile: {profile.tokenId}</h2>
       <div>
         <div id="div_side">
         <p>Name: {profile.name}<br />
@@ -70,17 +90,17 @@ const IndexPage = () => {
           <input
             name="Buy Price"
             placeholder="Buy Price"
-            value={tokenId}
-            onChange={e => handleTokenIdchange(e)}
+            value={BuyPrice}
+            onChange={e => handleBuyPricechange(e)}
           />
-        </div>
+        </div>&nbsp;&nbsp;
         <div><p>Quantity:</p></div>
         <div>
           <input
-            name="1"
-            placeholder="1"
-            value={tokenId}
-            onChange={e => handleTokenIdchange(e)}
+            name="Quantity"
+            placeholder="Quantity"
+            value={BuyQuantity}
+            onChange={e => handleBuyQuantitychange(e)}
           />
           <button onClick={() => handleSearch()}>Place Buy Order</button>
         </div>
@@ -91,17 +111,17 @@ const IndexPage = () => {
           <input
             name="Sell Price"
             placeholder="Sell Price"
-            value={tokenId}
-            onChange={e => handleTokenIdchange(e)}
+            value={SellPrice}
+            onChange={e => handleSellPricechange(e)}
           />
-        </div>
+        </div>&nbsp;&nbsp;
         <div><p>Quantity:</p></div>
         <div>
           <input
-            name="1"
-            placeholder="1"
-            value={tokenId}
-            onChange={e => handleTokenIdchange(e)}
+            name="Quantity"
+            placeholder="Quantity"
+            value={SellQuantity}
+            onChange={e => handleSellQuantitychange(e)}
           />
           <button onClick={() => handleSearch()}>Place Sell Order</button>
         </div>
