@@ -7,28 +7,33 @@ import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
     <Seo title="Home" />
     <h1>Profile: SML</h1>
-    <p>Name: Simon Liu</p>
-    <p>Age: 35</p>
-    <p>Gender: Male</p>
-    <p>Criminal Records: Nil<StaticImage
-      src="../images/profile_simon.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    /></p>
-    
-    
-    
+    <div>
+      <div id="div_side">
+      <p>Name: Simon Liu<br />
+        Age: 35<br />
+        Gender: Male<br />
+        Criminal Records: Nil<br />
+      </p>
+      </div>
+      <div id="div_side">
+      <StaticImage 
+        src="../images/profile_simon.png"
+        layout="fixed"
+        width={150}
+        height={150}/>
+      </div>
+    </div>
+    <div id="div_under">
+      <h2>Current Price: £303/token</h2>
+    </div>
+    <div id="div_under">
+      <StaticImage 
+        src="../images/price_chart.png"
+        layout="constrained"
+        />
+    </div>
   </Layout>
 )
 
