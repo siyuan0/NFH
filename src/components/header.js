@@ -26,7 +26,7 @@ const Header = () => {
 			</div>
 			<div style={{display: `inline`, alignItems: `center`}}>
 				<StaticImage
-						src="../images/logo1.png"
+						src="../images/logo.png"
 						width={100}
 						quality={90}
 						alt="logo"
