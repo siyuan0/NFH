@@ -103,7 +103,7 @@ const UploadPage = () => {
               onChange={e => handleNamechange(e)}
             />
         </div>
-
+        <br />
         <b>Choose a token ID</b>
         <div>
             <input
@@ -113,7 +113,7 @@ const UploadPage = () => {
               onChange={e => handleTokenIdchange(e)}
             />
         </div>
-
+        <br />
         <b>Describe your desired career</b>
         <div>
             <input
@@ -123,7 +123,7 @@ const UploadPage = () => {
               onChange={e => handleCareerchange(e)}
             />
         </div>
-
+        <br />
         <b>How much money do you need?</b>
         <div>
             <input
@@ -133,10 +133,10 @@ const UploadPage = () => {
               onChange={e => handleMoneychange(e)}
             />
         </div>
-
-        <b>Calculate % of income required to give away!</b>
+        <br />
+        <b>Calculate % of income required to give away!</b>&nbsp;
         <button onClick={() => handleCalculate()}>Calculate</button>
-        
+        <br />
         <div>
           <button onClick={() => handleCreate()}>Confirm NFH creation</button>
         </div>

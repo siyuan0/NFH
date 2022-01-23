@@ -7,8 +7,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Plot from 'react-plotly.js';
 
-
-
 const IndexPage = () => {
     const [BuyAmount, setBuyAmount] = useState("");
     const [tokenId, setTokenId] = useState("");
@@ -86,6 +84,7 @@ const IndexPage = () => {
   return(
     <Layout>
       <Seo title="Home" />
+      <h2>Search for your Non-Fungible Human (NFH)</h2>
       <div>
         <input
           name="tokenId"
