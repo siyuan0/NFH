@@ -94,6 +94,8 @@ const UploadPage = () => {
 
         <img src={image} />
 
+        <br />
+
         <b>Your Name</b>
         <div>
             <input
